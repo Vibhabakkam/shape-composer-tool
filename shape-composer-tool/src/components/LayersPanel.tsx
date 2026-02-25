@@ -1,7 +1,21 @@
+import type { ShapeLayer } from '../interfaces'
 
-const LayersPanel = () => {
+interface LayersPanelProps {
+  layers: ShapeLayer[]
+  onDeleteShape: (id: string) => void
+}
+
+const LayersPanel = ({ layers, onDeleteShape }: LayersPanelProps) => {
   return (
-    <div>LayersPanel</div>
+    <div>
+      <h3>Layers</h3>
+      {layers.map((layer, index) => (
+        <div key={layer.id}>
+          <span>{index + 1}. {layer.shape} [{layer.position}]</span>
+          <button onClick={() => onDeleteShape(layer.id)}>Delete</button>
+        </div>
+      ))}
+    </div>
   )
 }
 
