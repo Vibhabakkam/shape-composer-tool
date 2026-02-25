@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { ShapeLayer } from './interfaces'
 import ControlPanel from './components/ControlPanel'
+import CanvasBoard from './components/CanvasBoard'
 import LayersPanel from './components/LayersPanel'
 
 const App = () => {
@@ -19,7 +20,7 @@ const App = () => {
       <h1>Shape Composer Tool</h1>
       <div>
         <ControlPanel onAddShape={handleAddShape} />
-        <div>Canvas will go here</div>
+        <CanvasBoard layers={layers} />
         <LayersPanel layers={layers} onDeleteShape={handleDeleteShape} />
       </div>
     </div>
