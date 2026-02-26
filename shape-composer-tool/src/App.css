@@ -1,0 +1,21 @@
+.app {
+  min-height: 100vh;
+  background-color: #e8e8ed;
+  padding: 30px;
+}
+
+.app-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
+}
+
+.app-body {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+}
