@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import type { ShapeLayer } from '../interfaces'
 import { drawAllShapes } from '../utils/drawShapes'
+import './CanvasBoard.css'
 
 interface CanvasBoardProps {
   layers: ShapeLayer[]
@@ -22,12 +23,14 @@ const CanvasBoard = ({ layers }: CanvasBoardProps) => {
   }, [layers])
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={canvasWidth}
-      height={canvasHeight}
-      style={{ border: '1px solid black', background: '#f0f0f0' }}
-    />
+    <div className="canvas-wrapper">
+      <canvas
+        ref={canvasRef}
+        width={canvasWidth}
+        height={canvasHeight}
+        className="canvas-board"
+      />
+    </div>
   )
 }
 

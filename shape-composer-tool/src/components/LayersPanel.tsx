@@ -1,4 +1,5 @@
 import type { ShapeLayer } from '../interfaces'
+import './LayersPanel.css'
 
 interface LayersPanelProps {
   layers: ShapeLayer[]
@@ -7,12 +8,25 @@ interface LayersPanelProps {
 
 const LayersPanel = ({ layers, onDeleteShape }: LayersPanelProps) => {
   return (
-    <div>
-      <h3>Layers</h3>
+    <div className="layers-panel">
+      <h3 className="layers-title">LAYERS</h3>
+      {layers.length === 0 && (
+        <p className="layers-empty">No shapes added yet</p>
+      )}
       {layers.map((layer, index) => (
-        <div key={layer.id}>
-          <span>{index + 1}. {layer.shape} [{layer.position}]</span>
-          <button onClick={() => onDeleteShape(layer.id)}>Delete</button>
+        <div key={layer.id} className="layer-item">
+          <div className="layer-info">
+            <span className="layer-index">{index + 1}</span>
+            <span className="layer-name">
+              {layer.shape.charAt(0).toUpperCase() + layer.shape.slice(1)} [{layer.position}]
+            </span>
+          </div>
+          <button
+            className="delete-btn"
+            onClick={() => onDeleteShape(layer.id)}
+          >
+            🗑
+          </button>
         </div>
       ))}
     </div>
