@@ -10,7 +10,7 @@ interface CanvasBoardProps {
 const CanvasBoard = ({ layers }: CanvasBoardProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasWidth = 600
-  const canvasHeight = 600
+  const canvasHeight = 560
 
   useEffect(() => {
     const canvas = canvasRef.current
