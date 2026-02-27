@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import type { ShapeLayer } from './interfaces'
 import ControlPanel from './components/ControlPanel'
 import CanvasBoard from './components/CanvasBoard'
@@ -8,13 +8,13 @@ import './App.css'
 const App = () => {
   const [layers, setLayers] = useState<ShapeLayer[]>([])
 
-  const handleAddShape = (newShape: ShapeLayer) => {
-    setLayers([newShape, ...layers])
-  }
+  const handleAddShape = useCallback((newShape: ShapeLayer) => {
+    setLayers(prev => [newShape, ...prev])
+  }, [])
 
-  const handleDeleteShape = (id: string) => {
-    setLayers(layers.filter(layer => layer.id !== id))
-  }
+  const handleDeleteShape = useCallback((id: string) => {
+    setLayers(prev => prev.filter(layer => layer.id !== id))
+  }, [])
 
   return (
     <div className="app">
