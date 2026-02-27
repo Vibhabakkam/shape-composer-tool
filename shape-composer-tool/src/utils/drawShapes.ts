@@ -50,9 +50,7 @@ const drawTriangle = (ctx: CanvasRenderingContext2D, x: number, y: number, size:
 export const drawAllShapes = (ctx: CanvasRenderingContext2D, layers: ShapeLayer[], canvasWidth: number, canvasHeight: number) => {
   ctx.clearRect(0, 0, canvasWidth, canvasHeight)
 
-  const reversedLayers = [...layers].reverse()
-
-  reversedLayers.forEach(layer => {
+  layers.forEach(layer => {
     const { x, y } = getPosition(layer.position, layer.size, canvasWidth, canvasHeight)
 
     if (layer.shape === 'circle') {
